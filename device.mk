@@ -46,7 +46,8 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libtinycompress
+    libtinycompress \
+    sound_trigger.primary.bengal
 
 # Audio Daemon
 PRODUCT_PACKAGES += \
