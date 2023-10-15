@@ -132,11 +132,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
 
-# Dex/ART optimization
-PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
-USE_DEX2OAT_DEBUG := false
-
 # Display
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
