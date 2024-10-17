@@ -412,6 +412,9 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-3.9.1-vendorcompat \
     libprotobuf-cpp-full-3.9.1-vendorcompat
 
+# Platform
+TARGET_BOARD_PLATFORM := bengal
+
 # QMI
 PRODUCT_PACKAGES += \
     libcurl.vendor \
