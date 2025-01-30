@@ -596,7 +596,7 @@ vendor/lib64/libtzdrmgenprov.so|eb8b905583cde457c94af8c29248da7f59921bd8
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so|df4e94735c85347d2eb97ac06b7d50fcd0f1055d
 
 # DRM - from LA.UM.9.1.r1-12900-SMxxx0.0
-vendor/lib64/libspl.so
+vendor/lib64/libspl.so|e2b3e2dd28b0eee567d72de696cd1e01288ae06f
 
 # Embedded Secure Element power manager
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
