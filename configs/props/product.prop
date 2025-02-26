@@ -1,9 +1,3 @@
-# Audio
-audio_para_version=C3Q-Audiopara-V01-20211102
-audio.offload.min.duration.secs=30
-audio.sys.offload.pstimeout.secs=3
-ro.config.vc_call_vol_steps=11
-
 # LMKD
 ro.lmk.log_stats=false
 ro.lmk.kill_heaviest_task=false

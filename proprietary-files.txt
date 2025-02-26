@@ -101,8 +101,6 @@ vendor/firmware/aw87xxx_acf.bin|4c309dc610d77ae2511ae39ce0c4c171f77ed046
 vendor/firmware/fs1599.fsm|642a47863bc5ad3b7de6c7a04a3289ab322cf7d6
 
 # Audio FX - from MIUI
-system_ext/etc/permissions/audiosphere.xml|015ad7be4921039238bfa3d34d052d752453e49c
-system_ext/framework/audiosphere.jar|98d17293550d99e59d1edd8582ed4551dc167249
 vendor/lib/soundfx/libasphere.so|b2daeb875914a33575c7d7a67429f25d09d35489
 vendor/lib/soundfx/libmisoundfx.so|460208c6ac74b2f79ae2cb064ddbdb1c25ce0e33
 vendor/lib/soundfx/libqcbassboost.so|cc5ec98ec56b02bdb9f6b1de0a2a4e0f2b18c315
