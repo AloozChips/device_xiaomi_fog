@@ -82,18 +82,12 @@ ro.netflix.signup=1
 
 # Netmgr
 persist.data.netmgrd.qos.enable=true
-persist.vendor.data.mode=concurrent
-ro.vendor.use_data_netmgrd=true
 
 # NFC
 ro.nfc.port=I2C
 
 # RIL
-DEVICE_PROVISIONED=1
-ril.subscription.types=NV,RUIM
-ro.telephony.default_network=33,33
 ro.vendor.radio.features_common=3
-telephony.lteOnCdmaDevice=1
 
 # RmNet data
 persist.data.df.agg.dl_pkt=10
