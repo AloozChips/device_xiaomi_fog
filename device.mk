@@ -359,7 +359,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     av \
     bt \
     display \
-    gps
+    gps \
+    perf
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -411,10 +412,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi \
     vendor/qcom/opensource/usb/etc
-
-# Servicetracker
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.servicetracker@1.2.vendor
 
 # Telephony
 PRODUCT_PACKAGES += \
