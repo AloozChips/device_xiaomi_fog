@@ -139,32 +139,23 @@ PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
 USE_DEX2OAT_DEBUG := false
 
 # Display
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    android.hardware.graphics.mapper@4.0-impl-qti-display \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    libdisplayconfig.qti \
-    libdisplayconfig.system.qti \
-    libqdMetaData \
-    libqdMetaData.system \
-    libsdmcore \
-    libsdmutils \
-    libtinyxml \
-    memtrack.bengal \
-    vendor.display.config@1.14 \
-    vendor.display.config@1.11.vendor \
-    vendor.display.config@2.0 \
-    vendor.display.config@2.0.vendor \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.composer-service \
-    vendor.qti.hardware.display.mapper@1.1.vendor \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
+
+PRODUCT_VENDOR_PROPERTIES += \
+    debug.cpurend.vsync=false \
+    debug.hwui.skia_atrace_enabled=false \
+    debug.sf.disable_backpressure=1 \
+    debug.sf.enable_gl_backpressure=0 \
+    debug.sf.enable_egl_image_tracker=0 \
+    debug.sf.enable_transaction_tracing=false \
+    ro.vendor.display.sensortype=2 \
+    ro.vendor.display.svi=1 \
+    vendor.display.idle_time=0 \
+    vendor.display.idle_time_inactive=0 \
+    vendor.display.qdcm.mode_combine=2 \
+    vendor.display.svi.config=1 \
+    vendor.display.svi.config_path=/vendor/etc/SVIConfig.xml
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -377,7 +368,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     alarm \
     audio \
     av \
-    bt
+    bt \
+    display
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -454,10 +446,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
-
-# Touchscreen
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 # Update engine
 PRODUCT_PACKAGES += \
