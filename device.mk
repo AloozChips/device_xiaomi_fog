@@ -157,6 +157,13 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.display.svi.config=1 \
     vendor.display.svi.config_path=/vendor/etc/SVIConfig.xml
 
+# DPM
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.dpm.feature=1
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.dpmhalservice.enable=1
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
@@ -206,11 +213,6 @@ PRODUCT_COPY_FILES += \
 # IFAA manager
 PRODUCT_PACKAGES += \
     IFAAService
-
-# IPACM
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
 
 # Inherit several Android Go Configurations(Beneficial for everyone, even on non-Go devices)
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
@@ -280,10 +282,11 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
 
-# Network
-PRODUCT_PACKAGES += \
-    android.system.net.netd@1.1.vendor
+# Netmgr
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.data.netmgrd.qos.enable=true
 
+# Network
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 
@@ -344,14 +347,6 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     libprotobuf-cpp-full-3.9.1-vendorcompat
 
-# QMI
-PRODUCT_PACKAGES += \
-    libjson \
-    libqti_vndfwk_detect \
-    libqti_vndfwk_detect.vendor \
-    libvndfwk_detect_jni.qti \
-    libvndfwk_detect_jni.qti.vendor
-
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := \
     alarm \
@@ -360,16 +355,33 @@ TARGET_COMMON_QTI_COMPONENTS := \
     bt \
     display \
     gps \
-    perf
+    perf \
+    telephony
 
-# RIL
-PRODUCT_PACKAGES += \
-    android.hardware.radio@1.5.vendor \
-    android.hardware.radio.config@1.3.vendor \
-    android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.secure_element@1.2.vendor \
-    librmnetctl \
-    libxml2
+# Radio
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.telephony.block_binder_thread_on_incoming_calls=false
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.radio.fetchqos=true \
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.data.iwlan.enable=true \
+    persist.vendor.radio.add_power_save=1 \
+    persist.vendor.radio.atfwd.start=true \
+    persist.vendor.radio.data_con_rprt=1 \
+    persist.vendor.radio.enable_temp_dds=true \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.radio.manual_nw_rej_ct=1 \
+    persist.vendor.radio.mt_sms_ack=30 \
+    persist.vendor.radio.process_sups_ind=1 \
+    persist.vendor.radio.report_codec=1 \
+    persist.vendor.radio.snapshot_enabled=1 \
+    persist.vendor.radio.snapshot_timer=5 \
+    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    ro.vendor.radio.features_common=3 \
+    ro.vendor.se.type=HCE,UICC \
+    sys.vendor.shutdown.waittime=500
 
 # Rootdir
 PRODUCT_PACKAGES += \
@@ -412,27 +424,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi \
     vendor/qcom/opensource/usb/etc
-
-# Telephony
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext \
-    xiaomi-telephony-stub
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext \
-    xiaomi-telephony-stub
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
 
 # Update engine
 PRODUCT_PACKAGES += \
