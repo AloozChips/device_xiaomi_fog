@@ -332,7 +332,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     gps \
     media \
     perf \
-    telephony
+    telephony \
+    wfd
 
 # Radio
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
@@ -483,11 +484,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libnl \
     libwfdaac_vendor
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/fog/fog-vendor.mk)
