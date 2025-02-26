@@ -42,18 +42,8 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
     audio.primary.default \
-    audio.r_submix.default \
-    audio.usb.default \
     libaudio-resampler \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libtinycompress \
     sound_trigger.primary.bengal
-
-# Audio Daemon
-PRODUCT_PACKAGES += \
-    audioadsprpcd
 
 # Audio configs
 PRODUCT_COPY_FILES += \
@@ -262,12 +252,7 @@ PRODUCT_PACKAGES += \
     libavservices_minijail_vendor \
     libavservices_minijail \
     libavservices_minijail.vendor \
-    libOmxAacEnc \
-    libOmxAmrEnc \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxG711Enc \
-    libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw \
@@ -383,6 +368,7 @@ PRODUCT_PACKAGES += \
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := \
     alarm \
+    audio \
     bt
     
 # RIL
