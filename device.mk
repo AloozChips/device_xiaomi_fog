@@ -262,7 +262,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2.vendor
+    android.hardware.power@1.2.vendor \
+    android.hardware.power-service-qti
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -307,7 +308,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom_ramdisk \
     fstab.zram \
-    init.qcom.power.rc \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.target.rc \
