@@ -47,28 +47,6 @@ persist.log.tag.ContrastColorUtil=S
 persist.log.tag.GRALLOC=S
 persist.log.tag.gralloc4=S
 
-# Media
-debug.stagefright.ccodec=1
-debug.stagefright.omx_default_rank=0
-debug.stagefright.omx_default_rank.sw-audio=1
-media.aac_51_output_enabled=true
-media.settings.xml=/vendor/etc/media_profiles_vendor.xml
-media.stagefright.enable-aac=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-http=true
-media.stagefright.enable-player=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-scan=true
-media.stagefright.thumbnail.prefer_hw_codecs=true
-mmp.enable.3g2=true
-persist.mm.enable.prefetch=true
-ro.config.media_vol_default=10
-
-# Netflix
-ro.netflix.bsp_rev=Q6115-31409-1
-ro.netflix.channel=004ee050-1a17-11e9-bb61-6f1da27fb55b
-ro.netflix.signup=1
-
 # NFC
 ro.nfc.port=I2C
 
