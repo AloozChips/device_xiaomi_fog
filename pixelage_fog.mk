@@ -17,6 +17,9 @@ TARGET_SUPPORTS_QUICK_TAP := false
 TARGET_INCLUDE_LIVE_WALLPAPERS := false
 PIXELAGE_MAINTAINER := alternoegraha
 
+# Inherit custom signing key
+-include vendor/fog-priv/keys/keys.mk
+
 # Inherit from fog device
 $(call inherit-product, device/xiaomi/fog/device.mk)
 
