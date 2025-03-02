@@ -326,7 +326,6 @@ PRODUCT_PACKAGES += \
     FrameworksFogAOSPA \
     FrameworksFogIN2 \
     NoCutoutOverlay \
-    NotchBarKiller \
     SettingsFog \
     SettingsProviderFog \
     SettingsProviderFogCommon \
