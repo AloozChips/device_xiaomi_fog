@@ -7,5 +7,5 @@ git clone -b refresh https://github.com/alternoegraha/vendor_xiaomi_fog vendor/x
 # Clone prebuilt kernel
 git clone https://github.com/alternoegraha/device_xiaomi_fog-kernel device/xiaomi/fog-kernel
 
-# Clone LineageOS' hardware/xiaomi
-git clone -b lineage-22.1 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+# Clone Pixelage hardware/xiaomi
+git clone -b 15 https://github.com/ProjectPixelage/android_hardware_xiaomi hardware/xiaomi
