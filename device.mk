@@ -314,8 +314,6 @@ PRODUCT_PACKAGES += \
     FrameworksFog \
     FrameworksFogIN2 \
     LineageSDKFog \
-    NoCutoutOverlay \
-    NotchBarKiller \
     SettingsFog \
     SettingsProviderFog \
     SettingsProviderFogCommon \
@@ -326,6 +324,10 @@ PRODUCT_PACKAGES += \
     SystemUIFog \
     TelephonyFog \
     WifiFog
+
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay \
+    AvoidAppsInCutoutOverlay
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
