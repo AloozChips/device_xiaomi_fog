@@ -360,6 +360,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml
 
+# PI Hooks
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.pihooks.disable.gms_key_attestation_block=true
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.2.vendor \
