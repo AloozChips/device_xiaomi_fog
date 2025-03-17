@@ -82,6 +82,9 @@ persist.data.netmgrd.qos.enable=true
 # NFC
 ro.nfc.port=I2C
 
+# PIHooks
+persist.sys.pihooks.disable.gms_key_attestation_block=true
+
 # RIL
 ro.vendor.radio.features_common=3
 
