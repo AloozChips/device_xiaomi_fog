@@ -230,6 +230,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigFog \
     DialerFog \
     FrameworksFog \
+    FrameworksFogAOSPA \
     FrameworksFogIN2 \
     NoCutoutOverlay \
     NotchBarKiller \
