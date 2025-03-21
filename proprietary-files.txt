@@ -476,6 +476,10 @@ vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
+# Diag - from LA.UM.9.15.2.r1-10100-KAMORTA.QSSI14.0
+vendor/lib/libdiag.so|1e7b1b5913d6d32f213826ae86364ef568090eeb
+vendor/lib64/libdiag.so|14459b53b222f26f009e0b1af6f0bbf8203e73c9
+
 # Display - from MIUI
 vendor/etc/dsi_panel_c3q_35_02_0a_fhdp_video_display_mi.xml|1390c81a8af503a3b51d1c3951d053ef03f51cc2
 vendor/etc/dsi_panel_c3q_43_03_0b_fhdp_video_display_mi.xml|785cbbe9348932b54d150541b4c664cca2b7558b
@@ -824,7 +828,6 @@ etc/sysconfig/qti_whitelist.xml
 vendor/bin/irsc_util
 vendor/etc/seccomp_policy/qti-systemd.policy
 vendor/etc/sec_config
-vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
@@ -840,7 +843,6 @@ vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
-vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
 vendor/lib64/libdsutils.so
 vendor/lib64/libidl.so
