@@ -563,14 +563,11 @@ vendor/lib64/libsl_fp_impl.so|3954e6da3148f8f77a6e821cbee6b70ec52038ad
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so|39d820c32426a131ade6b946b0684cc8e2bc44bb
 vendor/lib64/vendor.silead.hardware.fingerprintext@1.0.so|56e16748c7f4551ab807bf9201f8fc4992f25e64
 
-# FM (system)
-system_ext/lib64/fm_helium.so
-system_ext/lib64/libfm-hci.so
-system_ext/lib64/vendor.qti.hardware.fm@1.0.so
-
-# FM (vendor)
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
+# FM - from LA.UM.9.15.2.r1-10100-KAMORTA.QSSI14.0
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|70aef41d8ced7832afc90dcf4ea83623e5e1c265
+vendor/lib/vendor.qti.hardware.fm@1.0.so|c036fbe16575a800994792431d10f6d1173cea26
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|084154df521025d3d6b4402cd8edcd06510e169c
+vendor/lib64/vendor.qti.hardware.fm@1.0.so|2f01b221540ba0c75b34f373b0b1201f10f9f8c0
 
 # FTM - from MIUI
 vendor/etc/ftm_loopback|bbcd8d7feb2db1d60670ee9569e8ae6cbfa3a6f3
