@@ -1176,11 +1176,11 @@ vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so|2d463ceff139c3132b2c6936be
 -vendor/lib64/libfastcvopt.so|0796b9092eb285d7689a8e6c4478a88a1d7e6e87
 
 # Soter
--vendor/app/SoterService/SoterService.apk
-vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
-vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.soter@1.0.so
+vendor/bin/hw/vendor.qti.hardware.soter@1.0-service|8e315a85eeeb94a51f1533c80212d2fc0ec88760
+vendor/bin/vendor.qti.hardware.soter@1.0-provision|d1fbc5777ca05a7405b9e65e334b22894cf29155
+vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc|76447a61ad5529949365eeb7e8ca000e48bd28ae
+vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so|8cee107e4f8ce6859335432cab7cb7b89803224c
+vendor/lib64/vendor.qti.hardware.soter@1.0.so|8251cbf50d81918cb0ab298e4ed26d21748624f0
 
 # Thermal - from MIUI
 vendor/bin/mi_thermald|e3c9e29cf38cbd2751da29106f84f13fbe6b68db
