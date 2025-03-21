@@ -813,10 +813,10 @@ vendor/etc/libnfc-nxp.conf|a6cd6ad29621e262d51c34cd9b1f1828c8f22e6d
 vendor/lib/libsn100u_fw.so|2bc1887b71b4557b75e26465f6917525bfd43e4a
 vendor/lib64/libpn557_fw.so|5fd4d17960d258563557d47d70c4d9d11a79fd15
 
-# Peripheral manager
-vendor/bin/pm-proxy
-vendor/bin/pm-service
-vendor/lib64/libperipheral_client.so
+# Peripheral manager - from LA.UM.9.15.2.r1-10100-KAMORTA.QSSI14.0
+vendor/bin/pm-proxy|8ea5c65add4af2dd1503023e8cfdcdf76b961c88
+vendor/bin/pm-service|8db29d527af4c10dad4bf398aa5cea2857ef78b9
+vendor/lib64/libperipheral_client.so|371cc38073c9d9bf8614f992e57a5a9891691191
 
 # Power-off charging daemon - from MIUI
 bin/charger:bin/chargeonlymode|ab71ddd91d39f5ffc4ee640aa7dfad0a6396d4bd
