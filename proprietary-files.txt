@@ -536,6 +536,23 @@ vendor/lib64/libspl.so|e2b3e2dd28b0eee567d72de696cd1e01288ae06f
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 vendor/lib64/vendor.qti.esepowermanager@1.1.so
 
+# EmbmsslServer - from LA.UM.9.15.2.r1-10100-KAMORTA.QSSI14.0
+vendor/bin/embmsslServer|26de66016535f74287a966a40f54e98e26d1adbc
+vendor/etc/init/init.embmssl_server.rc|e2f59e5d6223112bdcfbf9e9e69fe6abea3698b1
+vendor/lib64/libembmsservice.so|797b5cff7b5fb2aac043c3e3b3e0928e1b7c5ea9
+vendor/lib64/vendor.qti.hardware.embmssl@1.0-adapter-helper.so|ea1c0003f7ac057e67ca8a49cc1a25a7287c2a95
+vendor/lib64/vendor.qti.hardware.embmssl@1.0.so|e4fc8e5b0e7e9c609ed8c78309c3d6d86a131802
+vendor/lib64/vendor.qti.hardware.embmssl@1.1-adapter-helper.so|86a03bcc9a34bff0bd29f6c862da248fb81d7d55
+vendor/lib64/vendor.qti.hardware.embmssl@1.1.so|a4f353cac95f9cf034a5a91fe6419f6fb85f3d70
+
+# Factory - from LA.UM.9.15.2.r1-10100-KAMORTA.QSSI14.0
+vendor/bin/hw/vendor.qti.hardware.factory@1.0-service|cacf96d37eb787d153ffaa3aa7312524045d8132
+vendor/bin/mmid|dd5fd065fae235b8eb05fbfad3f1ee910bf7316e
+vendor/etc/init/vendor.qti.hardware.factory@1.0-service.rc|b47de7097f6b81ad6a6b05f70a2678861fda69fb
+vendor/etc/permissions/vendor.qti.hardware.factory.xml|bedb01aed43b95943ac60f80cf351742ccb4a072
+vendor/lib64/vendor.qti.hardware.factory@1.0.so|26587947997ade3f691c58176d76a9a706bd187b
+vendor/lib64/vendor.qti.hardware.factory@1.1.so|845ecda4dfe0b2a0fded2d944c12f5ac70e4f081
+
 # Fingerprint - from MIUI
 vendor/bin/hw/vendor.silead.hardware.fingerprintext@1.0-service|6a6e57e03c43f08d9b202a4ac856c00f6fe6fe85
 vendor/etc/init/vendor.silead.hardware.fingerprintext@1.0-service.rc|e3d096d7879c251b24ebbd686185ec4f0df5a178
