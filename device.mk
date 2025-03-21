@@ -272,7 +272,8 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     media.stagefright.enable-qcp=true \
     media.stagefright.enable-scan=true \
     mmp.enable.3g2=true \
-    persist.mm.enable.prefetch=true
+    persist.mm.enable.prefetch=true \
+    vendor.mm.enable.qcom_parser=16777215
 
 # Netflix
 PRODUCT_SYSTEM_PROPERTIES += \
