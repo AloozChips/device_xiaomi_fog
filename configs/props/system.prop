@@ -34,6 +34,7 @@ ro.vendor.qti.va_aosp.support=1
 # Graphics
 debug.cpurend.vsync=false
 debug.hwui.renderer=skiagl
+debug.renderengine.backend=skiaglthreaded
 debug.hwui.skia_atrace_enabled=false
 
 # Iorapd
