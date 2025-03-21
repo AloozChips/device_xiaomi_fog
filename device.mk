@@ -105,13 +105,10 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     libcamera2ndk_vendor \
+    libpiex_shim \
     libstdc++_vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
-
-# Camera
-PRODUCT_PACKAGES += \
-    libpiex_shim
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -122,10 +119,23 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/camxoverridesettings.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camxoverridesettings.txt
 
+PRODUCT_SYSTEM_PROPERTIES += \
+    camera.disable_zsl_mode=1 \
+    persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera,com.google.camera
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.perflock.enable=0
+
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
     system/core/libprocessgroup/profiles/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
+# Charger
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.vendor.quick.charge=1 \
+    ro.charger.disable_init_blank=true \
+    ro.charger.enable_suspend=true
 
 # Configs File System
 PRODUCT_PACKAGES += \
@@ -134,6 +144,13 @@ PRODUCT_PACKAGES += \
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
+
+# Crypto
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.crypto.allow_encrypt_override=true \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    ro.crypto.volume.metadata.method=dm-default-key
 
 # Display
 PRODUCT_COPY_FILES += \
@@ -166,6 +183,16 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
     android.hardware.drm-service.clearkey
 
+PRODUCT_VENDOR_PROPERTIES += \
+    drm.service.enabled=true
+
+# DPM
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.dpm.feature=1
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.dpmhalservice.enable=1
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
@@ -177,10 +204,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
-# FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    qcom.fmradio
+PRODUCT_SYSTEM_PROPERTIES += \
+    sys.fp.miui.token=0
 
 # FUSE Passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -194,26 +219,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     GrapheneCamera
 
+# Graphics
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.egl=adreno \
+    ro.hardware.vulkan=adreno \
+    ro.opengles.version=196610
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0.vendor \
-    libhidltransport.vendor \
-    libhwbinder.vendor
-
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
-
-# IFAA manager
-PRODUCT_PACKAGES += \
-    IFAAService
 
 # IRQ balance
 PRODUCT_COPY_FILES += \
@@ -236,6 +256,20 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light-service.xiaomi
+
+# LMKD
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.lmk.log_stats=false \
+    ro.lmk.kill_heaviest_task=false \
+    ro.lmk.kill_timeout_ms=100 \
+    ro.lmk.use_minfree_levels=true \
+    ro.lmk.critical_upgrade=true \
+    ro.lmk.upgrade_pressure=40 \
+    ro.lmk.downgrade_pressure=60 \
+    ro.lmk.filecache_min_kb=153600 \
+    ro.lmk.thrashing_limit=30 \
+    ro.lmk.thrashing_limit_decay=50 \
+    ro.lmk.stall_limit_critical=40
 
 # Media
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
@@ -285,6 +319,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_c3qn/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_c3qn/com.nxp.mifare.xml
 
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.nfc.port=I2C
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.nfc_nci=pn8x
+    ro.vendor.se.type=HCE,UICC
+
 # Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigFog \
@@ -293,7 +334,6 @@ PRODUCT_PACKAGES += \
     FrameworksFogAOSPA \
     FrameworksFogIN2 \
     NoCutoutOverlay \
-    NotchBarKiller \
     SettingsFog \
     SettingsProviderFog \
     SettingsProviderFogCommon \
@@ -307,6 +347,10 @@ PRODUCT_PACKAGES += \
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Phantom Process Monitoring
+PRODUCT_PRODUCT_PROPERTIES += \
+    sys.fflag.override.settings_enable_monitor_phantom_procs=false
 
 # Public libraries
 PRODUCT_COPY_FILES += \
@@ -367,6 +411,17 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.se.type=HCE,UICC \
     sys.vendor.shutdown.waittime=500
 
+# RMNet Data
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.data.df.agg.dl_pkt=10 \
+    persist.data.df.agg.dl_size=4096 \
+    persist.data.df.dl_mode=5 \
+    persist.data.df.iwlan_mux=9 \
+    persist.data.df.mux_count=8 \
+    persist.data.df.ul_mode=5 \
+    persist.data.wda.enable=true \
+    persist.rmnet.data.enable=true
+
 # Rootdir
 PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
@@ -402,20 +457,31 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.sensors.debug.ssc_qmi_debug=true \
+    persist.vendor.sensors.enable.bypass_worker=true \
+    persist.vendor.sensors.enable.rt_task=false \
+    persist.vendor.sensors.hal_trigger_ssr=false \
+    persist.vendor.sensors.support_direct_channel=false
+
+# SoC
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.soc.manufacturer=QTI \
+    ro.soc.model=SM6225
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi \
     vendor/qcom/opensource/usb/etc
 
-# Update engine
-PRODUCT_PACKAGES += \
-    update_engine \
-    update_engine_sideload \
-    update_verifier
+# Thermal
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.sys.thermal.data.path=/data/vendor/thermal/
 
-PRODUCT_PACKAGES_DEBUG += \
-    update_engine_client
+# Time-services
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.timed.enable=true
 
 # USB
 PRODUCT_PACKAGES += \
@@ -429,14 +495,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.usb.diag.func.name=diag \
+    vendor.usb.dpl.inst.name=dpl \
+    vendor.usb.qdss.inst.name=qdss \
+    vendor.usb.rmnet.func.name=gsi \
+    vendor.usb.rmnet.inst.name=rmnet \
+    vendor.usb.rndis.func.name=gsi \
+    vendor.usb.use_ffs_mtp=0 \
+    vendor.usb.use_gadget_hal=0
+
 ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.usb.config=mtp,adb
 endif
-
-# Vendor service manager
-PRODUCT_PACKAGES += \
-    vndservicemanager
 
 # Verified Boot
 PRODUCT_COPY_FILES += \
@@ -449,16 +521,6 @@ PRODUCT_COPY_FILES += \
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
-# Vulkan
-PRODUCT_PACKAGES += \
-    libvulkan
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-1.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_1.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
-
 # WLAN
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.wlan.dbs=0
@@ -469,9 +531,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
+PRODUCT_VENDOR_PROPERTIES += \
+    wifi.aware.interface=wifi-aware0
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libwfdaac_vendor
+
+# Zygote
+PRODUCT_SYSTEM_PROPERTIES += \
+    zygote.critical_window.minute=10 \
+    persist.device_config.runtime_native.usap_pool_enabled=true
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/fog/fog-vendor.mk)

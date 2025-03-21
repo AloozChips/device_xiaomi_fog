@@ -41,17 +41,6 @@ TARGET_2ND_CPU_VARIANT := generic
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
-# Audio
-AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
-AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
-AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
-AUDIO_FEATURE_ENABLED_HDMI_SPK := true
-AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-BOARD_SUPPORTS_OPENSOURCE_STHAL := true
-BOARD_SUPPORTS_SOUND_TRIGGER := true
-TARGET_PROVIDES_AUDIO_EXTNS := true
-USE_CUSTOM_AUDIO_POLICY := 1
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := bengal
 TARGET_NO_BOOTLOADER := true
@@ -65,7 +54,6 @@ RELAX_USES_LIBRARY_CHECK=true
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
 # Display
-TARGET_DISABLE_POSTRENDER_CLEANUP := true
 TARGET_SCREEN_DENSITY := 320
 
 # FM
@@ -78,9 +66,6 @@ DEVICE_MATRIX_FILE += $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
 
 ODM_MANIFEST_SKUS += c3qn
 ODM_MANIFEST_C3QN_FILES := $(DEVICE_PATH)/configs/vintf/manifest_c3qn.xml
-
-# HWUI
-HWUI_COMPILE_FOR_PERF := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_fog
@@ -165,21 +150,9 @@ TARGET_USERIMAGES_SPARSE_F2FS_DISABLED := true
 # OTA assert
 TARGET_OTA_ASSERT_DEVICE := fog,rain,wind
 
-# Platform
-BOARD_USES_QCOM_HARDWARE := true
-BOARD_VENDOR := xiaomi
-TARGET_BOARD_PLATFORM := bengal
-
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
-
-# Properties
-TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
-TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
-TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
