@@ -156,13 +156,10 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
-PRODUCT_PRODUCT_PROPERTIES += \
-    debug.renderengine.backend=skiaglthreaded
-
 PRODUCT_VENDOR_PROPERTIES += \
     debug.cpurend.vsync=false \
-    debug.hwui.renderer=skiagl \
     debug.hwui.skia_atrace_enabled=false \
+    debug.sf.disable_backpressure=1 \
     debug.sf.enable_gl_backpressure=0 \
     debug.sf.enable_egl_image_tracker=0 \
     debug.sf.enable_transaction_tracing=false \
