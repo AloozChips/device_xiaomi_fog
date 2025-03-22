@@ -153,11 +153,13 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.renderengine.backend=skiaglthreaded
+
 PRODUCT_VENDOR_PROPERTIES += \
     debug.cpurend.vsync=false \
     debug.hwui.renderer=skiagl \
     debug.hwui.skia_atrace_enabled=false \
-    debug.renderengine.backend=skiaglthreaded \
     debug.sf.enable_gl_backpressure=0 \
     debug.sf.enable_egl_image_tracker=0 \
     debug.sf.enable_transaction_tracing=false \
@@ -249,7 +251,7 @@ PRODUCT_PACKAGES += \
     android.hardware.light-service.xiaomi
 
 # LMKD
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.lmk.log_stats=false \
     ro.lmk.kill_heaviest_task=false \
     ro.lmk.kill_timeout_ms=100 \
@@ -341,7 +343,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Phantom Process Monitoring
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     sys.fflag.override.settings_enable_monitor_phantom_procs=false
 
 # PI Hooks
@@ -453,7 +455,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.sensors.debug.ssc_qmi_debug=true \
     persist.vendor.sensors.enable.bypass_worker=true \
     persist.vendor.sensors.enable.rt_task=false \
