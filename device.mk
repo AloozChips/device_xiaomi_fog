@@ -271,6 +271,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.lmk.thrashing_limit_decay=50 \
     ro.lmk.stall_limit_critical=40
 
+# Logs
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.log.tag.TrafficStats=S
+
 # Media
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     media.aac_51_output_enabled=true \
