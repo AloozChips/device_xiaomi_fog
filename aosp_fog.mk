@@ -14,6 +14,9 @@ TARGET_BOOT_ANIMATION_RES := 720
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_SUPPORTS_QUICK_TAP := false
 
+TARGET_INCLUDE_GRAMOPHONE := true
+TARGET_INCLUDE_GRAPHENE_CAMERA := true
+
 # Inherit from fog device
 $(call inherit-product, device/xiaomi/fog/device.mk)
 
