@@ -5,6 +5,7 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/alternoegraha/lineage_fog_ota/refs/heads/fifteen/fog.json</string>
-    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/alternoegraha/releases/refs/heads/main/changelogs/lineage_22.txt</string>
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/pos-fog/ota/refs/heads/fifteen/fog.json</string>
+    <string name="changelog_url" translatable="false">https://raw.githubusercontent.com/pos-fog/ota/fifteen/changelogs/fog.md</string>
+    <string name="certified_prop_url" translatable="false">https://raw.githubusercontent.com/pos-fog/ota/fifteen/CertifiedProps/certified_build_props.json</string>
 </resources>

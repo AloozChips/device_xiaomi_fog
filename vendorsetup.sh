@@ -7,5 +7,5 @@ git clone -b fifteen-qpr2 https://github.com/alternoegraha/vendor_xiaomi_fog ven
 # Clone prebuilt kernel
 git clone https://github.com/alternoegraha/device_xiaomi_fog-kernel device/xiaomi/fog-kernel
 
-# Clone LineageOS' hardware/xiaomi
-git clone -b lineage-22.2 https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+# Clone PixelOS hardware/xiaomi
+git clone -b fifteen https://github.com/PixelOS-AOSP/hardware_xiaomi hardware/xiaomi
