@@ -122,21 +122,6 @@ Only the three quirks included above are recognized at this point:
     </Settings>
     <Encoders>
         <!-- Video Hardware  -->
-        <MediaCodec name="OMX.qcom.video.encoder.avc" type="video/avc" >
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Quirk name="requires-loaded-to-idle-after-allocation" />
-            <Limit name="size" min="128x128" max="1920x1088" />
-            <Limit name="alignment" value="2x2" />
-            <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="64" max="489600" />
-            <Limit name="bitrate" range="1-60000000" />
-            <Limit name="frame-rate" range="1-120" />
-            <Limit name="concurrent-instances" max="16" />
-            <Feature name="can-swap-width-height" value="1" />
-            <Limit name="performance-point-1920x1080" value="60" />
-            <Limit name="performance-point-1280x720" value="120" />
-        </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.hevc" type="video/hevc" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
@@ -165,39 +150,19 @@ Only the three quirks included above are recognized at this point:
             <Feature name="bitrate-modes" value="CQ" />
             <Limit name="performance-point-512x512" value="2025" />
         </MediaCodec>
+        <MediaCodec name="c2.android.avc.encoder" type="video/avc" update="true">
+            <!-- profiles and levels:  ProfileMain : MainTierLevel51 -->
+            <Limit name="size" min="16x16" max="2048x2048" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-8192" /> <!-- max 2048x1024 -->
+            <Limit name="blocks-per-second" range="1-245760" />
+            <Limit name="bitrate" range="1-12000000" />
+            <Feature name="intra-refresh" />
+        </MediaCodec>
     </Encoders>
     <Decoders>
        <!-- Video Hardware  -->
-        <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" >
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Limit name="size" min="128x128" max="1920x1088" />
-            <Limit name="alignment" value="2x2" />
-            <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="64" max="489600" />
-            <Limit name="bitrate" range="1-60000000" />
-            <Limit name="frame-rate" range="1-120" />
-            <Feature name="adaptive-playback" />
-            <Feature name="can-swap-width-height" value="1" />
-            <Limit name="concurrent-instances" max="16" />
-            <Limit name="performance-point-1920x1080" value="60" />
-            <Limit name="performance-point-1280x720" value="120" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.avc.secure" type="video/avc" >
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Limit name="size" min="128x128" max="1920x1088" />
-            <Limit name="alignment" value="2x2" />
-            <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="64" max="489600" />
-            <Limit name="bitrate" range="1-35000000" />
-            <Limit name="frame-rate" range="1-60" />
-            <Feature name="adaptive-playback" />
-            <Feature name="can-swap-width-height" value="1" />
-            <Feature name="secure-playback" required="true" />
-            <Limit name="concurrent-instances" max="3" />
-            <Limit name="performance-point-1920x1080" value="30" />
-        </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.vp9" type="video/x-vnd.on2.vp9" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
@@ -258,5 +223,28 @@ Only the three quirks included above are recognized at this point:
             <Limit name="concurrent-instances" max="3" />
             <Limit name="performance-point-1920x1080" value="30" />
         </MediaCodec>
+        <MediaCodec name="c2.android.av1.decoder" type="video/av01" update="true">
+            <Limit name="size" min="96x96" max="1920x1080" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="blocks-per-second" min="24" max="2073600" />
+            <Limit name="bitrate" range="1-120000000" />
+            <Limit name="frame-rate" range="1-60" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+       <MediaCodec name="c2.android.avc.decoder" type="video/avc" update="true">
+            <!-- profiles and levels:  ProfileHigh : Level51 -->
+            <Limit name="size" min="2x2" max="1280x720" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="8x8" />
+            <Limit name="block-count" range="1-4096" />
+            <Limit name="blocks-per-second" range="1-259200" />
+            <Limit name="frame-rate" range="1-300" />
+            <Limit name="bitrate" range="1-10000000" />
+            <Limit name="quality" range="0-100"  default="80" />
+            <Limit name="complexity" range="0-10"  default="0" />
+            <Feature name="bitrate-modes" value="VBR,CBR,CQ" />
+            <Feature name="adaptive-playback" />
+       </MediaCodec>
     </Decoders>
 </MediaCodecs>
