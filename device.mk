@@ -189,7 +189,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi \
+    android.hardware.biometrics.fingerprint-service.xiaomi \
     com.fingerprints.extension@1.0.vendor:64
 
 PRODUCT_COPY_FILES += \
@@ -287,6 +287,29 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
 
+# Logging
+SPAMMY_LOG_TAGS := \
+    AnalyticsService \
+    KernelCpuUidActiveTimeReader \
+    Tracer \
+    NearbySharing \
+    IntervalStats \
+    CompatibilityChangeReporter \
+    SQLiteLog \
+    wificond \
+    b/223498680 \
+    TrafficStats \
+    ContrastColorUtil \
+    GRALLOC \
+    gralloc4 \
+    HWUI \
+    WifiHAL
+
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_SYSTEM_PROPERTIES += \
+    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=S)
+endif
+
 # Media
 PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-service \
@@ -319,10 +342,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
     frameworks/native/data/etc/android.software.ipsec_tunnel_migration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnel_migration.xml
-
-# Neural Networks
-PRODUCT_PACKAGES += \
-    android.hardware.neuralnetworks@1.3.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -502,6 +521,9 @@ endif
 # Vendor ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
+
+# UFFD GC
+OVERRIDE_ENABLE_UFFD_GC := false
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
