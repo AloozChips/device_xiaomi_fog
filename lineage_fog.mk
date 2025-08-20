@@ -15,6 +15,11 @@ TARGET_BOOT_ANIMATION_RES := 720
 # Inherit from fog device
 $(call inherit-product, device/xiaomi/fog/device.mk)
 
+# Inherit additional prebuilts
+$(call inherit-product-if-exists, vendor/additional-prebuilts/extras.mk)
+# Include GrapheneOS Camera
+TARGET_INCLUDE_GRAPHENE_CAMERA := true
+
 # AxionAOSP specific flags
 TARGET_PREBUILT_BCR := false
 TARGET_ENABLE_BLUR := true
