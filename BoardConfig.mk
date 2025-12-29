@@ -24,7 +24,8 @@ AB_OTA_PARTITIONS += \
     vendor_boot
 
 # A/B ART
-BOARD_USES_SYSTEM_OTHER_ODEX := true
+BOARD_USES_SYSTEM_OTHER_ODEX := false
+BOARD_USES_SYSTEM_OTHER_VDEX := false
 
 # Architecture
 TARGET_ARCH := arm64
@@ -200,7 +201,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Sepolicy
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+include device/lumine/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private

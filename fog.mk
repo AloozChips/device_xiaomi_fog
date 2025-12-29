@@ -9,13 +9,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/lumine/config/common_full_phone.mk)
+LUMINE_MAINTAINER := 𝙰𝚛𝚊𝚗𝚢𝚊🧃
+LUMINE_MAINTAINER_LINK := https://t.me/AloozChips
 TARGET_BOOT_ANIMATION_RES := 720
+TARGET_ENABLE_BLUR := true
+TARGET_SUPPORTS_QUICK_TAP := false
+BYPASS_CHARGE_SUPPORTED := false
+TARGET_BUILD_DEVICE_AS_WEBCAM := true
 
 # Inherit from fog device
 $(call inherit-product, device/xiaomi/fog/device.mk)
 
-PRODUCT_NAME := lineage_fog
+PRODUCT_NAME := fog
 PRODUCT_DEVICE := fog
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
