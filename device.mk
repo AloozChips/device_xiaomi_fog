@@ -76,6 +76,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.pro.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.pro.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
+$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1 \
@@ -95,7 +97,7 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
-$(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
+$(call soong_config_set_bool,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -362,28 +364,41 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    CarrierConfigFog \
-    DialerFog \
-    DeviceAsWebcamFog \
-    FrameworksFog \
-    FrameworksFogCommon \
-    FrameworksFogIndia \
-    FrameworksFogPower \
-    FrameworksRain \
-    FrameworksWind \
-    LineageSDKFog \
-    NcmTetheringOverlay \
-    NoCutoutOverlay \
-    SettingsFog \
-    SettingsProviderFog \
-    SettingsProviderFogCommon \
-    SettingsProviderFogIndia \
-    SettingsProviderFogPower \
-    SettingsProviderRain \
-    SettingsProviderWind \
-    SystemUIFog \
-    TelephonyFog \
-    WifiFog
+    FogCarrierConfigOverlay \
+    FogDialerOverlay \
+    FogDeviceAsWebcamOverlay \
+    FogLineageSDKOverlay \
+    FogSettingsOverlay \
+    FogSystemUIOverlay \
+    FogTelephonyOverlay
+
+PRODUCT_PACKAGES += \
+    FogFrameworksOverlayCommon \
+    FogSettingsProviderOverlayCommon \
+    FogWifiOverlayCommon
+
+PRODUCT_PACKAGES += \
+    FogFrameworksOverlay \
+    FogFrameworksOverlayIN \
+    FogFrameworksOverlayIN2 \
+    FogNoCutoutOverlay \
+    FogSettingsProviderOverlay \
+    FogSettingsProviderOverlayIN \
+    FogSettingsProviderOverlayIN2 \
+    FogWifiOverlay \
+    FogWifiOverlayIN \
+    FogWifiOverlayIN2
+
+PRODUCT_PACKAGES += \
+    NcmTetheringOverlay
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rro_overlays/config-odm.xml:$(TARGET_COPY_OUT_ODM)/overlay/config/config.xml \
+    $(LOCAL_PATH)/rro_overlays/config-vendor.xml:$(TARGET_COPY_OUT_VENDOR)/overlay/config/config.xml
+
+# libtinyxml-v34
+PRODUCT_PACKAGES += \
+    libtinyxml2-v34
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -538,9 +553,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
-
-# VNDK
-PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Vulkan
 PRODUCT_PACKAGES += \
