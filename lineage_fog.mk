@@ -15,6 +15,7 @@ TARGET_ENABLE_BLUR := true
 TARGET_SUPPORTS_QUICK_TAP := false
 BYPASS_CHARGE_SUPPORTED := false
 TARGET_BUILD_DEVICE_AS_WEBCAM := false
+TARGET_INCLUDE_VIPERFX := true
 
 # Inherit from fog device
 $(call inherit-product, device/xiaomi/fog/device.mk)
