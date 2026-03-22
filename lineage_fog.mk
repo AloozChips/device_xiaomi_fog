@@ -23,6 +23,10 @@ BYPASS_CHARGE_SUPPORTED := false
 TARGET_BUILD_DEVICE_AS_WEBCAM := true
 TARGET_INCLUDE_VIPERFX := true
 TORCH_STR_SUPPORTED := false
+WITH_GMS := true
+TARGET_CORE_GMS := false
+TARGET_GMS_EXTRAS := true
+TARGET_INCLUDES_LOS_PREBUILTS := false
 
 # Inherit from fog device
 $(call inherit-product, device/xiaomi/fog/device.mk)
