@@ -8,4 +8,5 @@ allow init device:chr_file ioctl;
 allow init hwservicemanager:binder { call transfer };
 allow init nfc:binder { call };
 allow init proc:file { write };
+allow init sysfs:file write;
 allow init sysfs:file setattr;
