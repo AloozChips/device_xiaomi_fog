@@ -7,4 +7,5 @@
     <!-- About device screen, build maintainer -->
     <string name="build_maintainer_summary">𝙰𝚛𝚊𝚗𝚢𝚊🧃</string>
     <string name="build_maintainer_donate_url">https://pathaopay.me/aranya</string>
+    <string name="config_deviceImageDrawable" translatable="false">fog_model</string>
 </resources>
